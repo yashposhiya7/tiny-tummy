@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiny Tummy - Toddler Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-gray-50 text-gray-900 scroll-smooth">
+
+  <!-- Hero Section (Full-screen initial view) -->
+  <section class="h-screen bg-gradient-to-r from-indigo-200 via-pink-200 to-yellow-100 flex flex-col justify-center items-center text-center">
+    <h1 class="text-5xl font-bold text-gray-800 mb-4">Tiny Tummy</h1>
+    <p class="text-xl text-gray-600 mb-6">Helping tired parents track every little milestone</p>
+    <div>
+      <a href="{{ url_for('signup') }}" class="bg-pink-500 text-white rounded-full px-8 py-3 text-lg shadow-lg hover:bg-pink-600 transition duration-300 mb-4">Get Started</a>
+      <a href="{{ url_for('signin') }}" class="bg-transparent border-2 border-pink-500 text-pink-500 rounded-full px-8 py-3 text-lg hover:bg-pink-500 hover:text-white transition duration-300">Sign In</a>
+    </div>
+  </section>
+
+  <!-- Feature Highlights -->
+  <section class="py-20 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-12">Features</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  
+        <!-- Track Feeding Sessions -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">🍼</div>
+          <h3 class="font-bold text-xl mb-2">Track Feeding Sessions</h3>
+          <p class="text-gray-600">Keep a log of every feeding and monitor your baby's progress.</p>
+        </div>
+  
+        <!-- Monitor Sleep Patterns -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">😴</div>
+          <h3 class="font-bold text-xl mb-2">Monitor Sleep Patterns</h3>
+          <p class="text-gray-600">Ensure your little one gets the rest they need for healthy development.</p>
+        </div>
+  
+        <!-- Log Diaper Changes -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">💩</div>
+          <h3 class="font-bold text-xl mb-2">Log Diaper Changes</h3>
+          <p class="text-gray-600">Track your baby’s diaper changes and ensure they’re well cared for.</p>
+        </div>
+  
+        <!-- Voice Command Logging -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">🎤</div>
+          <h3 class="font-bold text-xl mb-2">Voice Command Logging</h3>
+          <p class="text-gray-600">Log events with your voice! No more typing — simply speak to log feeding, naps, or changes.</p>
+        </div>
+  
+        <!-- Secure & Private -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">🔒</div>
+          <h3 class="font-bold text-xl mb-2">Secure & Private</h3>
+          <p class="text-gray-600">Your baby’s data is private and secure. We protect it with the highest encryption and privacy standards.</p>
+        </div>
+  
+        <!-- Growth Tracking -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">📈</div>
+          <h3 class="font-bold text-xl mb-2">Growth Tracking</h3>
+          <p class="text-gray-600">Track your baby’s weight, height, and developmental milestones to ensure healthy growth.</p>
+        </div>
+  
+        <!-- Notifications & Reminders -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">⏰</div>
+          <h3 class="font-bold text-xl mb-2">Notifications & Reminders</h3>
+          <p class="text-gray-600">Get timely reminders for feedings, diaper changes, naps, and doctor appointments.</p>
+        </div>
+  
+        <!-- Customizable Logs -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">⚙️</div>
+          <h3 class="font-bold text-xl mb-2">Customizable Logs</h3>
+          <p class="text-gray-600">Personalize your log categories and schedule based on your baby’s needs and routines.</p>
+        </div>
+  
+        <!-- Multi-user Support -->
+        <div class="bg-white rounded-lg shadow-lg p-6 feature-block opacity-0 translate-y-10 hover:opacity-100 hover:translate-y-0">
+          <div class="text-4xl text-pink-500 mb-4">👨‍👩‍👧‍👦</div>
+          <h3 class="font-bold text-xl mb-2">Multi-user Support</h3>
+          <p class="text-gray-600">Share your baby’s progress with other caregivers — all in a secure and private space.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-12">What Parents Are Saying</h2>
+      <div class="relative overflow-hidden">
+        <!-- Slider container -->
+        <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out w-full">
+          <!-- Slide items -->
+          {% for testimonial in testimonials %}
+          <div class="min-w-full px-4 md:px-10 flex-shrink-0 testimonial-slide">
+            <div class="bg-gray-100 rounded-xl shadow-lg p-8 max-w-xl mx-auto">
+              <p class="text-lg text-gray-700 italic mb-4">"{{ testimonial.text }}"</p>
+              <p class="font-semibold text-pink-600">— {{ testimonial.name }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Optional nav arrows -->
+        <div class="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer" onclick="prevSlide()">
+          <span class="text-3xl text-pink-500 hover:text-pink-700">❮</span>
+        </div>
+        <div class="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer" onclick="nextSlide()">
+          <span class="text-3xl text-pink-500 hover:text-pink-700">❯</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Tiny Tummy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Optional JS files -->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+</body>
+</html>

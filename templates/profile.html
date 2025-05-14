@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Setup - Tiny Tummy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body class="bg-gray-50">
+
+  <div class="scroll-container">
+    <!-- Step 1: Name -->
+    <section class="step-screen">
+      <div class="step-inner">
+        <h2 class="step-title">What is your name?</h2>
+        <input type="text" class="input" placeholder="Enter your name" required>
+        <button class="btn" onclick="goToNext(this)">Next</button>
+      </div>
+    </section>
+
+    <!-- Step 2: Date of Birth -->
+    <section class="step-screen">
+      <div class="step-inner">
+        <h2 class="step-title">What is your date of birth?</h2>
+        <input type="date" class="input" required>
+        <button class="btn" onclick="goToBack(this)">Back</button>
+        <button class="btn" onclick="goToNext(this)">Next</button>
+      </div>
+    </section>
+
+    <!-- Step 3: Gender -->
+    <section class="step-screen">
+        <div class="step-inner">
+          <h2 class="step-title">What is your gender?</h2>
+      
+          <div class="flex flex-row items-center gap-6 mb-6">
+            <label class="flex items-center gap-2">
+              <input type="radio" name="gender" value="Male" required>
+              <span>Male</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="radio" name="gender" value="Female">
+              <span>Female</span>
+            </label>
+          </div>
+      
+          <div class="flex justify-between gap-6">
+            <button class="btn" onclick="goToBack(this)">Back</button>
+            <button class="btn" onclick="goToNext(this)">Next</button>
+          </div>
+        </div>
+      </section>
+
+    <!-- Step 4: Weight -->
+    <section class="step-screen">
+      <div class="step-inner">
+        <h2 class="step-title">What is your weight?</h2>
+        <input type="number" class="input" placeholder="Weight (kg)" required>
+        <button class="btn" onclick="goToBack(this)">Back</button>
+        <button class="btn" onclick="goToNext(this)">Next</button>
+      </div>
+    </section>
+
+    <!-- Step 5: Height -->
+    <section class="step-screen">
+      <div class="step-inner">
+        <h2 class="step-title">What is your height?</h2>
+        <input type="number" class="input" placeholder="Height (cm)" required>
+        <button class="btn" onclick="goToBack(this)">Back</button>
+        <button class="btn" onclick="goToNext(this)">Next</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+</body>
+</html>

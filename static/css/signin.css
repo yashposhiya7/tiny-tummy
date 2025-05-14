@@ -1,0 +1,35 @@
+/* Fade-in animation for the form */
+#signin-form {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Activate fade-in */
+  #signin-form.opacity-100 {
+    opacity: 1;
+  }
+  
+  /* Smooth focus for inputs */
+  input:focus {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Prevent button size shrinking */
+  #signin-button {
+    transition: background-color 0.3s ease;
+    height: 3rem;
+  }
+  
+  /* Disabled button look */
+  #signin-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Toggle eye consistency */
+  #toggle-password {
+    right: 1rem; /* or adjust if needed */
+    top: 68%;
+    transform: translateY(-50%);
+  }  
+  

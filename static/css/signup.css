@@ -1,0 +1,48 @@
+/* signup.css */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #signup-form {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  input:focus, button:focus {
+    outline: none;
+    border-color: #ff77b6;
+  }
+  
+  button:disabled {
+    background-color: #e4e4e4;
+    cursor: not-allowed;
+  }
+  
+  button#signup-button {
+    position: relative;
+  }
+  
+  button#signup-button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #toggle-password {
+    right: 1rem; /* Adjust if needed */
+    top: 68%;
+    transform: translateY(-50%);
+  }
+  
+  

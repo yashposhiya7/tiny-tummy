@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods = ["GET", "POST"])
 def index():
     testimonials = [
     {
@@ -59,9 +59,15 @@ def signup():
 def signin():
     return render_template("signin.html")
 
-@app.route("/profile")
+@app.route("/profile", methods=["GET","POST"])
 def profile():
-    return render_template("profile.html")
+    if request.method == "POST":
+        return render_template("dashboard.html")
+    return render_template("profile.html") 
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5558)

@@ -1,78 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Setup - Tiny Tummy</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
-<body class="bg-gray-50">
+<body class="bg-pink-50 min-h-screen flex items-center justify-center">
 
-  <div class="scroll-container">
-    <!-- Step 1: Name -->
-    <section class="step-screen">
-      <div class="step-inner">
-        <h2 class="step-title">What is your name?</h2>
-        <input type="text" class="input" placeholder="Enter your name" required>
-        <button class="btn" onclick="goToNext(this)">Next</button>
-      </div>
-    </section>
+    <div class="relative w-full max-w-md bg-white p-8 rounded-2xl shadow-xl">
+        <!-- Baby SVG -->
+        <div class="relative w-full flex justify-center mb-6">
+            <img src="{{ url_for('static', filename='svg/baby.gif') }}" alt="Baby SVG" class="absolute -top-8 w-24 h-24 transform -translate-y-1.1">
+          </div>          
 
-    <!-- Step 2: Date of Birth -->
-    <section class="step-screen">
-      <div class="step-inner">
-        <h2 class="step-title">What is your date of birth?</h2>
-        <input type="date" class="input" required>
-        <button class="btn" onclick="goToBack(this)">Back</button>
-        <button class="btn" onclick="goToNext(this)">Next</button>
-      </div>
-    </section>
-
-    <!-- Step 3: Gender -->
-    <section class="step-screen">
-        <div class="step-inner">
-          <h2 class="step-title">What is your gender?</h2>
-      
-          <div class="flex flex-row items-center gap-6 mb-6">
-            <label class="flex items-center gap-2">
-              <input type="radio" name="gender" value="Male" required>
-              <span>Male</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="radio" name="gender" value="Female">
-              <span>Female</span>
-            </label>
-          </div>
-      
-          <div class="flex justify-between gap-6">
-            <button class="btn" onclick="goToBack(this)">Back</button>
-            <button class="btn" onclick="goToNext(this)">Next</button>
-          </div>
-        </div>
-      </section>
-
-    <!-- Step 4: Weight -->
-    <section class="step-screen">
-      <div class="step-inner">
-        <h2 class="step-title">What is your weight?</h2>
-        <input type="number" class="input" placeholder="Weight (kg)" required>
-        <button class="btn" onclick="goToBack(this)">Back</button>
-        <button class="btn" onclick="goToNext(this)">Next</button>
-      </div>
-    </section>
-
-    <!-- Step 5: Height -->
-    <section class="step-screen">
-      <div class="step-inner">
-        <h2 class="step-title">What is your height?</h2>
-        <input type="number" class="input" placeholder="Height (cm)" required>
-        <button class="btn" onclick="goToBack(this)">Back</button>
-        <button class="btn" onclick="goToNext(this)">Next</button>
-      </div>
-    </section>
+        <h2 class="text-center text-2xl font-bold text-gray-800 mt-16 mb-6">Create Baby Profile</h2>
+        <form id="profileForm" method="POST" action="/profile">
+            <div class="space-y-5">
+                <!-- DOB Modal -->
+<div id="dobModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-80 max-w-full shadow-lg relative">
+      <h2 class="text-xl font-semibold mb-4 text-pink-600">Select Baby's Date of Birth</h2>
+      <input id="flatpickrDob" type="text" placeholder="Select DOB" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300" readonly>
+      <button id="closeModal" class="absolute top-2 right-3 text-gray-500 hover:text-pink-600 text-2xl font-bold leading-none">&times;</button>
+    </div>
   </div>
+  
+                <input type="text" name="name" placeholder="Baby's Name" required class="input-field">
+                <input type="text" id="dobInput" name="dob" required class="input-field" placeholder="Select Date of Birth" readonly>
+                
+                <div class="flex justify-between">
+                    <button type="button" class="gender-toggle" data-gender="Boy">Boy</button>
+                    <button type="button" class="gender-toggle" data-gender="Girl">Girl</button>
+                    <input type="hidden" name="gender" id="genderInput" required>
+                </div>
 
-  <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+                <input type="number" name="weight" placeholder="Weight (kg)" step="0.1" required class="input-field">
+                <input type="number" name="height" placeholder="Height (cm)" step="0.1" required class="input-field">
+            </div>
+            <!-- Add this inside the div wrapping the form (right after the form or before the submit button) -->
+            <button type="submit" id="submitBtn" class="mt-6 w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded transition">Submit</button>
+            
+        </form>
+        <div id="loadingGif" class="hidden flex justify-center mt-4">
+            <img src="{{ url_for('static', filename='svg/baby2.gif') }}" alt="Loading..." class="w-24 h-24" />
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+/* Base styling for the voice button (can be extended) */
+#voiceButton {
+    transition: transform 0.2s ease;
+  }
+  #voiceButton:hover {
+    transform: scale(1.1);
+  }
+  

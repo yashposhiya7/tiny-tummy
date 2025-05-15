@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 max-w-3xl mx-auto space-y-6">
+
+  <!-- Header -->
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-pink-600">Welcome, Yash Poshiya!</h1>
+    <p class="text-gray-500">Here's a quick summary of your baby profile</p>
+  </div>
+
+  <!-- Baby Summary Card -->
+  <div class="bg-white rounded-xl shadow-md p-6 flex items-center space-x-6">
+    <img src="{{ url_for('static', filename='svg/baby.gif') }}" alt="Baby" class="w-20 h-20 rounded-full border border-pink-300" />
+    <div>
+      <p class="text-xl font-semibold text-gray-700">Yash Poshiya</p>
+      <p class="text-gray-500">DOB: 08/10/2005  18 years old)</p>
+      <p class="text-gray-500">Gender: boy </p>
+      <p class="text-gray-500">Weight: 15</p>
+      <p class="text-gray-500">Height:  15</p>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <a href="/update-profile" class="bg-pink-100 text-pink-700 text-center p-4 rounded-lg font-medium hover:bg-pink-200 transition">
+      ✏️ Update Profile
+    </a>
+    <a href="/add-measurement" class="bg-green-100 text-green-700 text-center p-4 rounded-lg font-medium hover:bg-green-200 transition">
+      ➕ Add New Measurement
+    </a>
+  </div>
+
+  <!-- Placeholder for future graph or data -->
+  <div class="mt-6 bg-white p-6 rounded-lg shadow-md text-gray-500 text-center">
+    📊 Growth tracking graphs coming soon...
+  </div>
+</div>
+{% endblock %}
